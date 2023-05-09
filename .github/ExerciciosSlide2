@@ -1,0 +1,16 @@
+// Escreva uma função que receba um ponteiro para um booleano e altere o valor desse
+// booleano para o seu inverso.
+package main
+
+import "fmt"
+
+func invert(ptr *bool) {
+	*ptr = !*ptr
+}
+
+func main() {
+	ptr := true
+	fmt.Println("Antes da inversão: ", ptr)
+	invert(&ptr)
+	fmt.Println("Depois da inversão: ", ptr)
+}
