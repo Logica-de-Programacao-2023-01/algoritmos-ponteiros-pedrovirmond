@@ -1,0 +1,18 @@
+package main
+
+import "fmt"
+
+func swap(ptr1, ptr2 *int) {
+	*ptr1 = *ptr1 + 1
+	*ptr2 = *ptr2 + 1
+
+}
+
+func main() {
+	x := 42
+	y := 34
+	fmt.Println("Valor de x e y antes do swap: ", x, ",", y)
+	swap(&x, &y)
+	fmt.Println("Valor de x após o swap: ", x)
+	fmt.Println("Valor de y após o swap: ", y)
+}
