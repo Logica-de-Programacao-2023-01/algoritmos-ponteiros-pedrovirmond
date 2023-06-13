@@ -1,0 +1,25 @@
+// Escreva uma função em Go que receba um ponteiro para uma string e
+// atualize o valor da string para seu reverso.
+package main
+
+import "fmt"
+
+func reverseString(ptr *string) {
+	runes := []rune(*ptr)
+	length := len(runes)
+
+	for i, j := 0, length-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+	*ptr = string(runes)
+}
+func main() {
+	var string string
+	fmt.Print("Apresente a string: ")
+	fmt.Scanln(&string)
+
+	reverseString(&string)
+	fmt.Println("String revertida: ", string)
+
+}

@@ -1,0 +1,31 @@
+// Escreva uma função em Go que receba um ponteiro
+// para um struct Livro com campos título e autor,
+// e altere o título do livro para
+// "Desconhecido" se o autor for "Anônimo".
+package main
+
+import "fmt"
+
+type Livro struct {
+	Titulo string
+	Autor  string
+}
+
+func alterarTitulo(livro *Livro) {
+	if livro.Autor == "Anônimo" {
+		livro.Titulo = "Desconhecido"
+	}
+}
+func main() {
+	livro := Livro{
+		Titulo: "Qualquer",
+		Autor:  "Anônimo",
+	}
+	fmt.Println("Autor Original: ", livro.Autor)
+	fmt.Println("Titulo Original: ", livro.Titulo)
+	fmt.Println("-------------------------------------------------------------------------")
+	alterarTitulo(&livro)
+	fmt.Println("-------------------------------------------------------------------------")
+	fmt.Println("Novo Autor: ", livro.Autor)
+	fmt.Println("Novo Titulo: ", livro.Titulo)
+}

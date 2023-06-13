@@ -1,0 +1,28 @@
+//Escreva uma função em Go que receba um ponteiro para uma variável inteira
+//e atualize o valor da variável para a soma dos valores dos seus dois últimos dígitos
+//(por exemplo, se o valor inicial da variável for 1234, o novo valor será 3+4=7).
+package main
+
+import "fmt"
+
+func somadeVariaveis(ptr *int) {
+	n := *ptr
+	if n < 0 {
+		n = -n
+	}
+	ultimoDigito := n % 10
+	n /= 10
+	penultimoDigito := n % 10
+	soma := ultimoDigito + penultimoDigito
+	*ptr = soma
+}
+
+func main() {
+	var ptr int
+	fmt.Print("Apresente um variável inteira: ")
+	fmt.Scanln(&ptr)
+
+	somadeVariaveis(&ptr)
+	fmt.Println("Novo valor: ", ptr)
+
+}

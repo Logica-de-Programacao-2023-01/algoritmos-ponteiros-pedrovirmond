@@ -1,20 +1,31 @@
-// Escreva uma função que receba um ponteiro para um inteiro
-// e um valor inteiro “n“.
-// A função deve atualizar o valor do inteiro
-// para a soma dos “n“ primeiros números naturais.
+//Escreva uma função em Go que receba um ponteiro
+//para um struct Conta com campos saldo e titular,
+//e adicione um valor ao saldo da conta.
 package main
 
 import "fmt"
 
-func somaNaturais(p *int, n int) {
-	soma := 0
-	for i := 1; i <= n; i++ {
-		soma += 1
-	}
-	*p = soma
+type Conta struct {
+	Saldo   float64
+	Titular string
 }
+
+func addValor(conta *Conta) {
+	var valor float64
+	novoSaldo := conta.Saldo + valor
+}
+
 func main() {
-	x := 0
-	somaNaturais(&x, 5)
-	fmt.Println("Soma dos 5 primeiros números naturais: ", x)
+	conta := Conta{
+		Saldo:   4120.21,
+		Titular: "Pedro",
+	}
+
+	var valor float64
+	fmt.Print("Apresente o valor qu deseja adicionar: ")
+	fmt.Scanln(&valor)
+
+	addValor(&conta)
+	fmt.Println("")
+
 }
